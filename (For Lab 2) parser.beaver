@@ -158,8 +158,10 @@ PriExpr = LHSExpr
 	| ParentExpr
 	;
 
+// FuncationCall takes in "Possibly Empty List" of Expression
 FunctionCall = ID LPAREN ExprList RPAREN;
 
+// ArrayExpr takes in "Non-Empty" List of Expression
 ArrayExpr = LBRACKET Expr NonEmptyExprList RBRACKET;
 
 // Empty List of Expressions
@@ -167,7 +169,7 @@ ExprList = Expr NonEmptyExprList
 	|
 	;
 
-// Non-Empty List of Expressions (Change)
+// Non-Empty List of Expressions
 NonEmptyExprList = COMMA Expr NonEmptyExprList
 	|
 	;
