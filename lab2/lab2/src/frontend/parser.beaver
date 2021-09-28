@@ -162,16 +162,16 @@ PriExpr = LHSExpr
 FunctionCall = ID LPAREN ExprList RPAREN;
 
 // ArrayExpr takes in "Non-Empty" List of Expression
-ArrayExpr = LBRACKET Expr NonEmptyExprList RBRACKET;
+ArrayExpr = LBRACKET NonEmptyExprList RBRACKET;
 
 // Empty List of Expressions
-ExprList = Expr NonEmptyExprList
+ExprList = NonEmptyExprList
 	|
 	;
 
 // Non-Empty List of Expressions
-NonEmptyExprList = COMMA Expr NonEmptyExprList
-	|
+NonEmptyExprList = NonEmptyExprList COMMA Expr
+	| Expr
 	;
 
 BooleanLiteral = TRUE
